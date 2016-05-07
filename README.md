@@ -22,7 +22,7 @@ Allows WhatsApp users to extract their cipher key and databases on non-rooted An
 
  1.) Extract "WhatsApp-Key-DB-Extractor-master.zip" maintaining the directory structure.
  
- 2.) Click on "WhatsAppKeyDBExtract.bat" (Windows) or "WhatsAppKeyDBExtract.sh" (Linux).
+ 2.) Click on "WhatsAppKeyDBExtract.bat" (Windows) or "WhatsAppKeyDBExtract.sh" (Mac OS X / Linux).
  
  3.) Connect your device via USB, unlock your screen and wait for "Full backup" to appear.
  
