@@ -20,7 +20,7 @@ Allows WhatsApp users to extract their cipher key and databases on non-rooted An
 
 # INSTRUCTIONS:
 
- 1.) Extract the master zip file on your computer maintaining the directory structure.
+ 1.) Extract "WhatsApp-Key-DB-Extractor-master.zip" maintaining the directory structure.
  
  2.) Click on "WhatsAppKeyDBExtract.bat" (Windows) or "WhatsAppKeyDBExtract.sh" (Linux).
  
