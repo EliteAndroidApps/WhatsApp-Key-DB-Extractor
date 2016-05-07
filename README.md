@@ -42,7 +42,8 @@ v4.4 - Changed primary mirror for legacy apk.
      adb permissions, you may also need to "sudo ./WhatsAppKeyDBExtract.sh" from your command console.  
  4. If you're having issues with "WhatsAppKeyDBExtract.bat" then right click "WhatsAppKeyDBExtract.ps1"  
      and select "Run with PowerShell". You may have to enter "y" at first run for execution policy.  
-     
-     
-     AUTHOR: TripCode  
-     THANKS: dragomerlin for Android Backup Extractor and Abinash Bishoyi for being cool.  
+
+
+### CREDITS:
+ AUTHOR: TripCode  
+ THANKS: dragomerlin for Android Backup Extractor and Abinash Bishoyi for being cool.  
