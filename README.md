@@ -2,7 +2,7 @@
 Allows WhatsApp users to extract their cipher key and databases on non-rooted Android devices.
 
 
-### BRANCH UPDATES:
+###### BRANCH UPDATES:
 v4.0 - Fixed issues with Android API 14-17 (4.0-4.2 Jelly Bean).  
 v4.1 - Added support for Android API 23 (6.0-6.0.1 Marshmallow).  
 v4.2 - Added support for specifying adb backup passwords.  
@@ -10,7 +10,7 @@ v4.3 - Added PowerShell version as optional alternative to bat version.
 v4.4 - Changed primary mirror for legacy apk.  
 
 
-### PREREQUISITES:
+###### PREREQUISITES:
  1. O/S: Windows Vista, Windows 7, Windows 8, Windows 10, Mac OS X or Linux  
  2. Java - If not installed: https://www.java.com/en/download/  
  3. ADB (Android Debug Bridge) Drivers  
@@ -20,7 +20,7 @@ v4.4 - Changed primary mirror for legacy apk.
  5. Android device with Android 4.0 or higher. I.E. Ice Cream Sandwich, Jelly Bean, KitKat, Lollipop or Marshmallow.  
 
 
-### INSTRUCTIONS:
+###### INSTRUCTIONS:
  1. Extract "WhatsApp-Key-DB-Extractor-master.zip" maintaining the directory structure.  
  2. Click on "WhatsAppKeyDBExtract.bat" (Windows) or "WhatsAppKeyDBExtract.sh" (Mac OS X / Linux).  
  3. Connect your device via USB, unlock your screen and wait for "Full backup" to appear.  
@@ -28,7 +28,7 @@ v4.4 - Changed primary mirror for legacy apk.
  5. Confirm backup password in your command console and then check your "extracted" folder.  
  
 
-### TROUBLESHOOTING:
+###### TROUBLESHOOTING:
  1. If you have never used USB Debugging before, you may also need to verify the fingerprint.  
  2. If you have set a default backup password in your Android settings, then this MUST be the  
      backup password that you PROVIDE when prompted to backup your data. Else it WILL fail!  
@@ -38,6 +38,6 @@ v4.4 - Changed primary mirror for legacy apk.
      and select "Run with PowerShell". You may have to enter "y" at first run for execution policy.  
 
 
-### CREDITS:
+###### CREDITS:
  AUTHOR: TripCode  
  THANKS: dragomerlin for Android Backup Extractor and Abinash Bishoyi for being cool.  
