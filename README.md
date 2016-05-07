@@ -1,6 +1,5 @@
 # WhatsApp-Key-DB-Extractor
-Allows WhatsApp users to extract their cipher key and databases on non-rooted Android devices.
-
+Allows WhatsApp users to extract their cipher key and databases on non-rooted Android devices.  
 
 ###### BRANCH UPDATES:
 v4.0 - Fixed issues with Android API 14-17 (4.0-4.2 Jelly Bean).  
