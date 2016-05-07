@@ -4,7 +4,7 @@ Allows WhatsApp users to extract their cipher key and databases on non-rooted An
 
 # PREREQUISITES:
 
- 1.) O/S: Windows Vista, Windows 7, Windows 8, Windows 10 or Linux
+ 1.) O/S: Windows Vista, Windows 7, Windows 8, Windows 10, Mac OS X or Linux
  
  2.) Java - If not installed: https://www.java.com/en/download/
  
