@@ -39,8 +39,8 @@ Allows WhatsApp users to extract their cipher key and databases on non-rooted An
  2.) If you have set a default backup password in your Android settings, then this MUST be the
      backup password that you PROVIDE when prompted to backup your data. Else it WILL fail!
      
- 3.) Linux users may need to set the script permissions as executable. Depending on the adb
-     permissions, you may also need to "sudo ./WhatsAppKeyDBExtract.sh" from your command console.
+ 3.) Linux and Mac OS X users may need to set the script permissions as executable. Depending on the
+     adb permissions, you may also need to "sudo ./WhatsAppKeyDBExtract.sh" from your command console.
      
  4.) If you're having issues with "WhatsAppKeyDBExtract.bat" then right click "WhatsAppKeyDBExtract.ps1"
      and select "Run with PowerShell". You may have to enter "y" at first run for execution policy.
