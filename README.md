@@ -2,6 +2,19 @@
 Allows WhatsApp users to extract their cipher key and databases on non-rooted Android devices.
 
 
+# BRANCH UPDATES:
+
+v4.0 - Fixed issues with Android API 14-17 (4.0-4.2 Jelly Bean).
+
+v4.1 - Added support for Android API 23 (6.0-6.0.1 Marshmallow).
+
+v4.2 - Added support for specifying adb backup passwords.
+
+v4.3 - Added PowerShell version as optional alternative to bat version.
+
+v4.4 - Changed primary mirror for legacy apk.
+
+
 # PREREQUISITES:
 
  1.) O/S: Windows Vista, Windows 7, Windows 8, Windows 10, Mac OS X or Linux
