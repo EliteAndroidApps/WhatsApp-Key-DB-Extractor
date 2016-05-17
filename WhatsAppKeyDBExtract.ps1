@@ -1,4 +1,4 @@
-$Host.UI.RawUI.WindowTitle = "WhatsApp Key/DB Extractor 4.4 (Official)"
+$Host.UI.RawUI.WindowTitle = "WhatsApp Key/DB Extractor 4.5 (Official)"
 Function TerminateWithReason([String] $reason)
 {
 "`r`n$reason`r`n`r`nExiting...`r`n"
@@ -15,7 +15,7 @@ exit
 "= be restored at the end of the extraction process so try not to panic. ="
 "= Script by: TripCode (Greets to all who visit: XDA Developers Forums). ="
 "= Thanks to: dragomerlin for ABE and to Abinash Bishoyi for being cool. ="
-"=         ###          Version: v4.4 (05/06/2016)          ###          ="
+"=         ###          Version: v4.5 (17/05/2016)          ###          ="
 "=========================================================================`r`n"
 If (!(Test-Path "bin"))
 {
@@ -26,6 +26,7 @@ Invoke-Expression "bin\adb.exe kill-server"
 Invoke-Expression "bin\adb.exe start-server"
 Invoke-Expression "bin\adb.exe wait-for-device"
 $sdkver = Invoke-Expression "bin\adb.exe shell getprop ro.build.version.sdk 2>&1"
+$sdpath = Invoke-Expression 'bin\adb.exe shell "echo `$EXTERNAL_STORAGE" 2>&1'
 If ($sdkver -le 13)
 {
 TerminateWithReason("Unsupported Android Version - this method only works on 4.0 or higher :/")
@@ -141,8 +142,8 @@ Copy-Item tmp\apps\com.whatsapp\db\chatsettings.db extracted\chatsettings.db
 }
 If (Test-Path "tmp\apps\com.whatsapp\f\key")
 {
-"`r`nPushing cipher key to: /sdcard/WhatsApp/Databases/.nomedia"
-Invoke-Expression "bin\adb.exe push tmp\apps\com.whatsapp\f\key /sdcard/WhatsApp/Databases/.nomedia"
+"`r`nPushing cipher key to: $sdpath/WhatsApp/Databases/.nomedia"
+Invoke-Expression "bin\adb.exe push tmp\apps\com.whatsapp\f\key $sdpath/WhatsApp/Databases/.nomedia"
 ""
 }
 "Cleaning up temporary files ..."

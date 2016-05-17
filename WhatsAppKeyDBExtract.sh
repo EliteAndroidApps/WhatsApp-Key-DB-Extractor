@@ -25,7 +25,7 @@ echo -e "
 = be restored at the end of the extraction process so try not to panic. =
 = Script by: TripCode (Greets to all who visit: XDA Developers Forums). =
 = Thanks to: dragomerlin for ABE and to Abinash Bishoyi for being cool. =
-=         ###          Version: v4.4 (05/06/2016)          ###          =
+=         ###          Version: v4.5 (17/05/2016)          ###          =
 =========================================================================
 "
 if (($is_adb == 0)); then
@@ -46,6 +46,7 @@ adb kill-server
 adb start-server
 adb wait-for-device
 sdkver=$(adb shell getprop ro.build.version.sdk | tr -d '[[:space:]]')
+sdpath=$(adb shell "echo \$EXTERNAL_STORAGE/WhatsApp/Databases/.nomedia" | tr -d '[[:space:]]')
 if [ $sdkver -le 13 ]; then
 echo -e "\nUnsupported Android Version - this method only works on 4.0 or higher :/\n"
 adb kill-server
@@ -114,7 +115,8 @@ echo -e "Saving axolotl.db ..."
 cp tmp/apps/com.whatsapp/db/axolotl.db extracted/axolotl.db
 echo -e "Saving chatsettings.db ..."
 cp tmp/apps/com.whatsapp/db/chatsettings.db extracted/chatsettings.db
-echo -e "\nPushing cipher key to: /sdcard/WhatsApp/Databases/.nomedia"
+echo -e "\nPushing cipher key to: $sdpath"
+adb push tmp/apps/com.whatsapp/f/key $sdpath
 else
 echo -e "Operation failed"
 fi

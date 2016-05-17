@@ -1,7 +1,7 @@
 @echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
 color 0a
-title WhatsApp Key/DB Extractor 4.4 (Official)
+title WhatsApp Key/DB Extractor 4.5 (Official)
 echo.
 echo =========================================================================
 echo = This script will extract the WhatsApp Key file and DB on Android 4.0+ =
@@ -12,7 +12,7 @@ echo = permissions. You will NOT lose ANY data and your current version will =
 echo = be restored at the end of the extraction process so try not to panic. =
 echo = Script by: TripCode (Greets to all who visit: XDA Developers Forums). =
 echo = Thanks to: dragomerlin for ABE and to Abinash Bishoyi for being cool. =
-echo =         ###          Version: v4.4 (05/06/2016)          ###          =
+echo =         ###          Version: v4.5 (17/05/2016)          ###          =
 echo =========================================================================
 echo.
 if not exist bin (
@@ -46,6 +46,7 @@ pause
 exit
 )
 bin\adb.exe shell pm path com.whatsapp | bin\grep.exe package > tmp\wapath.txt
+bin\adb.exe shell "echo $EXTERNAL_STORAGE" > tmp\sdpath.txt
 bin\adb.exe shell dumpsys package com.whatsapp | bin\grep.exe versionName > tmp\wapver.txt
 bin\curl.exe -sI http://yourfile.link/WhatsApp-2.11.431.apk | bin\grep.exe Content-Length > tmp\waplen.txt
 set /p apkflen=<tmp\waplen.txt
@@ -56,6 +57,7 @@ set apkfurl=http://yourfile.link/WhatsApp-2.11.431.apk
 set apkfurl=http://whatcrypt.com/WhatsApp-2.11.431.apk
 )
 set /p apkpath=<tmp\wapath.txt
+set /p sdpath=<tmp\sdpath.txt
 set apkpath=%apkpath:package:=%
 set /p version=<tmp\wapver.txt
 for %%A in ("%apkpath%") do (
@@ -153,8 +155,8 @@ copy tmp\apps\com.whatsapp\db\chatsettings.db extracted\chatsettings.db
 echo.
 )
 if exist tmp\apps\com.whatsapp\f\key (
-echo Pushing cipher key to: /sdcard/WhatsApp/Databases/.nomedia
-bin\adb.exe push tmp\apps\com.whatsapp\f\key /sdcard/WhatsApp/Databases/.nomedia
+echo Pushing cipher key to: %sdpath%/WhatsApp/Databases/.nomedia
+bin\adb.exe push tmp\apps\com.whatsapp\f\key %sdpath%/WhatsApp/Databases/.nomedia
 echo.
 )
 echo Cleaning up temporary files ...
@@ -167,6 +169,9 @@ del tmp\whatsapp.tar /s /q
 )
 if exist tmp\waplen.txt (
 del tmp\waplen.txt /s /q
+)
+if exist tmp\sdpath.txt (
+del tmp\sdpath.txt /s /q
 )
 if exist tmp\wapath.txt (
 del tmp\wapath.txt /s /q
@@ -206,6 +211,7 @@ echo Operation failed
 )
 set sdkver=
 set apkpath=
+set sdpath=
 set apkname=
 set apkflen=
 set apkfurl=
