@@ -25,7 +25,7 @@ echo -e "
 = be restored at the end of the extraction process so try not to panic. =
 = Script by: TripCode (Greets to all who visit: XDA Developers Forums). =
 = Thanks to: dragomerlin for ABE and to Abinash Bishoyi for being cool. =
-=         ###          Version: v4.5 (17/05/2016)          ###          =
+=         ###          Version: v4.6 (11/10/2016)          ###          =
 =========================================================================
 "
 if (($is_adb == 0)); then
@@ -53,9 +53,9 @@ adb kill-server
 else
 apkpath=$(adb shell pm path com.whatsapp | grep package | tr -d '[[:space:]]')
 version=$(adb shell dumpsys package com.whatsapp | grep versionName | tr -d '[[:space:]]')
-apkflen=$(curl -sI http://yourfile.link/WhatsApp-2.11.431.apk | grep Content-Length | grep -o '[0-9]*')
+apkflen=$(curl -sI http://31.7.186.215/WhatsApp-2.11.431.apk | grep Content-Length | grep -o '[0-9]*')
 if [ $apkflen -eq 18329558 ]; then
-apkfurl=http://yourfile.link/WhatsApp-2.11.431.apk
+apkfurl=http://31.7.186.215/WhatsApp-2.11.431.apk
 else
 apkfurl=http://whatcrypt.com/WhatsApp-2.11.431.apk
 fi
