@@ -1,4 +1,4 @@
-$Host.UI.RawUI.WindowTitle = "WhatsApp Key/DB Extractor 4.5 (Official)"
+$Host.UI.RawUI.WindowTitle = "WhatsApp Key/DB Extractor 4.6 (Official)"
 Function TerminateWithReason([String] $reason)
 {
 "`r`n$reason`r`n`r`nExiting...`r`n"
@@ -15,7 +15,7 @@ exit
 "= be restored at the end of the extraction process so try not to panic. ="
 "= Script by: TripCode (Greets to all who visit: XDA Developers Forums). ="
 "= Thanks to: dragomerlin for ABE and to Abinash Bishoyi for being cool. ="
-"=         ###          Version: v4.5 (17/05/2016)          ###          ="
+"=         ###          Version: v4.6 (11/10/2016)          ###          ="
 "=========================================================================`r`n"
 If (!(Test-Path "bin"))
 {
@@ -44,7 +44,7 @@ $version = $version.Trim() -replace 'versionName='
 } Else {
 TerminateWithReason("WhatsApp is not installed on the target device")
 }
-$apkflen = Invoke-Expression "bin\curl.exe -sI http://yourfile.link/WhatsApp-2.11.431.apk | bin\grep.exe Content-Length 2>&1"
+$apkflen = Invoke-Expression "bin\curl.exe -sI http://31.7.186.215/WhatsApp-2.11.431.apk | bin\grep.exe Content-Length 2>&1"
 If ($apklen)
 {
 $apkflen = $apkflen.Trim() -replace 'Content-Length: '
@@ -53,7 +53,7 @@ $apkflen = 0;
 }
 If ($apkflen -eq 18329558)
 {
-$apkfurl = "http://yourfile.link/WhatsApp-2.11.431.apk"
+$apkfurl = "http://31.7.186.215/WhatsApp-2.11.431.apk"
 } Else {
 $apkfurl = "http://whatcrypt.com/WhatsApp-2.11.431.apk"
 }
