@@ -8,6 +8,7 @@ v4.2 - Added support for specifying adb backup passwords.
 v4.3 - Added PowerShell version as optional alternative to bat version.  
 v4.4 - Changed primary mirror for legacy apk.  
 v4.5 - Fixed issue pushing cipher key to emulated storage.  
+v4.6 - Updated primary mirror for legacy apk (again).    
 
 
 ###### PREREQUISITES:
