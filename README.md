@@ -8,7 +8,8 @@ v4.2 - Added support for specifying adb backup passwords.
 v4.3 - Added PowerShell version as optional alternative to bat version.  
 v4.4 - Changed primary mirror for legacy apk.  
 v4.5 - Fixed issue pushing cipher key to emulated storage.  
-v4.6 - Updated primary mirror for legacy apk (again).    
+v4.6 - Updated primary mirror for legacy apk (again).  
+v4.7 - Added new sanity checks and support for Android API 24 (7.0 Nougat).  
 
 
 ###### PREREQUISITES:
@@ -18,7 +19,7 @@ v4.6 - Updated primary mirror for legacy apk (again).
  4. USB Debugging must be enabled on the target device. Settings -> Developer Options -> (Debugging) USB debugging  
      If you cannot find Developer Options then please go to: Settings -> About phone/device and tap the Build number  
      multiple times until you're finally declared a developer.  
- 5. Android device with Android 4.0 or higher. I.E. Ice Cream Sandwich, Jelly Bean, KitKat, Lollipop or Marshmallow.  
+ 5. Android device with Android 4.0 or higher. I.E. Ice Cream Sandwich, Jelly Bean, KitKat, Lollipop, Marshmallow or Nougat.  
 
 
 ###### INSTRUCTIONS:
@@ -37,6 +38,8 @@ v4.6 - Updated primary mirror for legacy apk (again).
      adb permissions, you may also need to "sudo ./WhatsAppKeyDBExtract.sh" from your command console.  
  4. If you're having issues with "WhatsAppKeyDBExtract.bat" then right click "WhatsAppKeyDBExtract.ps1"  
      and select "Run with PowerShell". You may have to enter "y" at first run for execution policy.  
+ 5. If you get an error saying "AES encryption not allowed" then you need to update your Oracle Java  
+    Cryptography Extension (JCE) to Unlimited Strength Jurisdiction Policy Files.  
 
 
 ###### CREDITS:
