@@ -1,4 +1,4 @@
-$Host.UI.RawUI.WindowTitle = "WhatsApp Key/DB Extractor 4.6 (Official)"
+$Host.UI.RawUI.WindowTitle = "WhatsApp Key/DB Extractor 4.7 (Official)"
 Function TerminateWithReason([String] $reason)
 {
 "`r`n$reason`r`n`r`nExiting...`r`n"
@@ -15,7 +15,7 @@ exit
 "= be restored at the end of the extraction process so try not to panic. ="
 "= Script by: TripCode (Greets to all who visit: XDA Developers Forums). ="
 "= Thanks to: dragomerlin for ABE and to Abinash Bishoyi for being cool. ="
-"=         ###          Version: v4.6 (11/10/2016)          ###          ="
+"=         ###          Version: v4.7 (12/10/2016)          ###          ="
 "=========================================================================`r`n"
 If (!(Test-Path "bin"))
 {
@@ -44,7 +44,7 @@ $version = $version.Trim() -replace 'versionName='
 } Else {
 TerminateWithReason("WhatsApp is not installed on the target device")
 }
-$apkflen = Invoke-Expression "bin\curl.exe -sI http://31.7.186.215/WhatsApp-2.11.431.apk | bin\grep.exe Content-Length 2>&1"
+$apkflen = Invoke-Expression "bin\curl.exe -sI http://www.cdn.whatsapp.net/android/2.11.431/WhatsApp.apk | bin\grep.exe Content-Length 2>&1"
 If ($apklen)
 {
 $apkflen = $apkflen.Trim() -replace 'Content-Length: '
@@ -53,7 +53,7 @@ $apkflen = 0;
 }
 If ($apkflen -eq 18329558)
 {
-$apkfurl = "http://31.7.186.215/WhatsApp-2.11.431.apk"
+$apkfurl = "http://www.cdn.whatsapp.net/android/2.11.431/WhatsApp.apk"
 } Else {
 $apkfurl = "http://whatcrypt.com/WhatsApp-2.11.431.apk"
 }
@@ -160,8 +160,11 @@ If (Test-Path "tmp\apps")
 Remove-Item tmp\apps -recurse
 }
 "Done`r`n"
-If (Test-Path "tmp\$apkname")
+if (-Not (Test-Path  "tmp\$apkname"))
 {
+"Downloading WhatsApp $version to local folder`r`n"
+Invoke-Expression "bin\curl.exe -o tmp\$apkname http://www.cdn.whatsapp.net/android/$version/WhatsApp.apk"
+}
 "Restoring WhatsApp $version"
 If ($sdkver -ge 17)
 {
@@ -170,7 +173,6 @@ Invoke-Expression "bin\adb.exe install -r -d tmp\$apkname"
 Invoke-Expression "bin\adb.exe install -r tmp\$apkname"
 }
 "Restore complete`r`n"
-}
 "Removing WhatsApp $version temporary apk`r`n"
 Remove-Item tmp\$apkname
 "`r`nOperation complete`r`n"
