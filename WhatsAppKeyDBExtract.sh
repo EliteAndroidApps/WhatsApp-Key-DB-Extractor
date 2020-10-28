@@ -50,8 +50,8 @@ elif (($is_tr == 0)); then
 else
     echo -e "\nPlease connect your Android device with USB Debugging enabled:\n"
 
-    adb kill-server
-    adb start-server
+    sudo adb kill-server
+    sudo adb start-server
     adb wait-for-device
     sdkver=$(adb shell getprop ro.build.version.sdk | tr -d '[[:space:]]')
     sdpath=$(adb shell "echo \$EXTERNAL_STORAGE/WhatsApp/Databases/.nomedia" | tr -d '[[:space:]]')
@@ -109,7 +109,7 @@ else
 
                 adb reboot
 		        adb wait-for-device
-                read -p "Wait device reboot, unlock and the press Enter to continue..."
+                read -p "Wait device reboot, unlock and the press Enter to continue... "
             fi
 
             if [ $sdkver -ge 17 ]; then
@@ -119,9 +119,11 @@ else
             fi
 
             echo -e "Install complete\n"
-            echo -e "\nYou can backup using 'adb backup' command (option A)\n"
+            echo -e "You can backup using 'adb backup' command (option A)\n"
             echo -e "or you can use 'bu' command and then 'adb pull' (option B) (need enough storage on sdcard)\n"
-            read -n1 -p "Please select an option? [A,B]" backup_option
+            read -n1 -p "Please select an option? [A,B] " input
+
+            echo -e "\n\n"
 
             if [[ $input == "A" || $input == "a" ]]; then
                 if [ $sdkver -ge 23 ]; then
@@ -131,15 +133,15 @@ else
                 fi
             elif [[ $input == "B" || $input == "b" ]]; then
                 if [ $sdkver -ge 28 ]; then
-                    echo -e "Android 9.0 or higher\n"
+                    echo -e "\nAndroid 9.0 or higher\n"
                     adb shell "bu backup com.whatsapp ^> /sdcard/whatsapp.ab"
 			        adb pull /sdcard/whatsapp.ab tmp/whatsapp.ab
                 elif [ $sdkver -ge 23 ]; then
-                    echo -e "Android 6 to 8.1\n"
+                    echo -e "\nAndroid 6 to 8.1\n"
                     adb shell "bu 1 backup com.whatsapp ^> /sdcard/whatsapp.ab"
 				    adb pull /sdcard/whatsapp.ab tmp/whatsapp.ab
                 else
-                    echo -e "Android before 6\n"
+                    echo -e "\nAndroid before 6\n"
                     adb shell "bu 1 backup -noapk com.whatsapp ^> /sdcard/whatsapp.ab"
 				    adb pull /sdcard/whatsapp.ab tmp/whatsapp.ab
                 fi
@@ -185,8 +187,8 @@ else
             fi
 
             echo -e "Restore complete\n\nCleaning up temporary files ..."
-            rm tmp/whatsapp.ab
-            rm tmp/whatsapp.tar
+            # rm tmp/whatsapp.ab
+            # rm tmp/whatsapp.tar
             rm -rf tmp/apps
             rm tmp/$apkname
             echo -e "Done\n\nOperation complete\n"
@@ -195,5 +197,5 @@ else
 fi
 
 adb kill-server
-read -p "Please press Enter to quit..."
+read -p "Please press Enter to quit... "
 exit 0
