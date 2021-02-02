@@ -108,7 +108,7 @@ else
                 echo -e "Device may have to be rebooted to downgrade and avoid failure like [INSTALL_FAILED_VERSION_DOWNGRADE]\n"
 
                 adb reboot
-		        adb wait-for-device
+		adb wait-for-device
                 read -p "Wait device reboot, unlock and the press Enter to continue... "
             fi
 
